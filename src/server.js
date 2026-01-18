@@ -1,8 +1,9 @@
 import http from 'http';
 
 import app from './app.js';
+import { env } from './config/env.js';
 
-const PORT = 3000;
+const PORT = env.port || 3000;
 
 export const bootstrap = ()=>{
     const server = http.createServer(app);
