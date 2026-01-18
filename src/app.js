@@ -1,5 +1,7 @@
 import express from 'express';
 
+import { notFound } from './middlewares/notFound.middleware.js';
+
 const app = express();
 
 app.get('/', (req, res) => {
@@ -8,5 +10,7 @@ app.get('/', (req, res) => {
     message: 'API running',
   });
 });
+
+app.use(notFound);
 
 export default app;
