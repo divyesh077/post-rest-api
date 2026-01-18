@@ -13,4 +13,7 @@ const getEnv = (key, defaultValue) => {
 export const env = {
   nodeEnv: getEnv('NODE_ENV', 'development'),
   port: Number(getEnv('PORT', 3000)),
+  mongodb: {
+    uri: getEnv('MONGODB_URI'),
+  },
 };
