@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/divyesh077/post-rest-api/issues"
   },
-  "homepage": "https://github.com/divyesh077/post-rest-api#readme"
+  "homepage": "https://github.com/divyesh077/post-rest-api#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
 }
