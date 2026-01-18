@@ -9,8 +9,8 @@
     "start": "node src/index.js",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "format":"prettier . --write",
-    "format:check":"prettier . --check"
+    "format": "prettier . --write",
+    "format:check": "prettier . --check"
   },
   "repository": {
     "type": "git",

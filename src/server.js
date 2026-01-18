@@ -5,10 +5,10 @@ import { env } from './config/env.js';
 
 const PORT = env.port || 3000;
 
-export const bootstrap = ()=>{
-    const server = http.createServer(app);
+export const bootstrap = () => {
+  const server = http.createServer(app);
 
-    server.listen(PORT,()=>{
-        console.log(`Server is running on http:localhost:${PORT}`);
-    })
-}
+  server.listen(PORT, () => {
+    console.log(`Server is running on http:localhost:${PORT}`);
+  });
+};
