@@ -21,7 +21,7 @@ export default defineConfig([
 
     plugins: {
       js,
-      import: importPlugin
+      import: importPlugin,
     },
 
     extends: ['js/recommended'],
@@ -41,9 +41,9 @@ export default defineConfig([
         'error',
         {
           groups: [
-            'builtin',   // node:http, fs, path
-            'external',  // express, dotenv
-            'internal',  // aliases like @/...
+            'builtin', // node:http, fs, path
+            'external', // express, dotenv
+            'internal', // aliases like @/...
             ['parent', 'sibling', 'index'], // ../ ./ ./index
             'object',
             'type',
