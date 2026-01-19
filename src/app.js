@@ -1,5 +1,6 @@
 import express from 'express';
 
+import { errorHandler } from './middlewares/errorHandler.middleware.js';
 import { notFound } from './middlewares/notFound.middleware.js';
 
 const app = express();
@@ -12,5 +13,6 @@ app.get('/', (req, res) => {
 });
 
 app.use(notFound);
+app.use(errorHandler);
 
 export default app;
