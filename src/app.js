@@ -1,16 +1,12 @@
 import express from 'express';
 
 import { errorHandler } from './middlewares/errorHandler.middleware.js';
+import { health } from './middlewares/health.middleware.js';
 import { notFound } from './middlewares/notFound.middleware.js';
 
 const app = express();
 
-app.get('/', (req, res) => {
-  res.status(200).json({
-    success: true,
-    message: 'API running',
-  });
-});
+app.get('/health', health);
 
 app.use(notFound);
 app.use(errorHandler);
