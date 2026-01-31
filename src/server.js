@@ -4,6 +4,7 @@ import app from './app.js';
 import { connectToDB, disconnectFromDB } from './config/db.js';
 import { env } from './config/env.js';
 import { registerShutdown } from './config/shutdown.js';
+import { verifyMailServer } from './config/smtp.js';
 
 const PORT = env.port || 3000;
 
@@ -11,6 +12,9 @@ export const bootstrap = async () => {
   try {
     // Connect DB
     await connectToDB();
+
+    // Check the SMTP server
+    await verifyMailServer();
 
     // Start the HTTP server
     const server = http.createServer(app);
