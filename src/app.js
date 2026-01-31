@@ -3,6 +3,7 @@ import express from 'express';
 import helmet from 'helmet';
 import morgan from 'morgan';
 
+import { errorConverter } from './middlewares/errorConverter.middleware.js';
 import { errorHandler } from './middlewares/errorHandler.middleware.js';
 import { health } from './middlewares/health.middleware.js';
 import { notFound } from './middlewares/notFound.middleware.js';
@@ -27,6 +28,8 @@ app.use('/api/v1', v1Router);
 
 // 404 + Error Handler
 app.use(notFound);
+
+app.use(errorConverter);
 app.use(errorHandler);
 
 export default app;
