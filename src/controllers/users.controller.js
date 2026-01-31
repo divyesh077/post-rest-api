@@ -12,3 +12,19 @@ export const getUsers = async (req, res, next) => {
     next(error);
   }
 };
+
+export const getUserById = async (req, res, next) => {
+  try {
+    const { userId } = req.params;
+
+    const user = await usersService.getUserById(userId);
+
+    res.status(200).json({
+      success: true,
+      message: 'users fetch successfully',
+      user,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
