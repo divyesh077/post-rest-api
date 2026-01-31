@@ -6,6 +6,7 @@ import morgan from 'morgan';
 import { errorHandler } from './middlewares/errorHandler.middleware.js';
 import { health } from './middlewares/health.middleware.js';
 import { notFound } from './middlewares/notFound.middleware.js';
+import v1Router from './routes/v1/index.js';
 
 const app = express();
 
@@ -21,6 +22,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/health', health);
+
+app.use('/api/v1', v1Router);
 
 // 404 + Error Handler
 app.use(notFound);
