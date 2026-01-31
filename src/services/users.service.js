@@ -42,6 +42,19 @@ const getUserById = async (userId) => {
   }
 };
 
+const getUserByIdWithThrowError = async (userId) => {
+  try {
+    const user = await User.findById(userId).select('-password -__v').lean();
+    if (!user) {
+      throw new AppError(`User not found with Id ${userId}`, 404, 'NOT_FOUND');
+    }
+    return user;
+  } catch (error) {
+    console.error('UsersService :: getUserById :: error :: ', error);
+    throw error;
+  }
+};
+
 const getUserByEmail = async (email) => {
   try {
     return await User.findOne({ email: email });
@@ -121,6 +134,7 @@ export default {
   createUser,
   getUsers,
   getUserById,
+  getUserByIdWithThrowError,
   getUserByEmail,
   getUserByEmailWithThrowError,
   updateUserById,
