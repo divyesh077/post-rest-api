@@ -122,7 +122,7 @@ export const sendVerificationEmail = async (req, res, next) => {
 
 export const verifyEmail = async (req, res, next) => {
   try {
-    const emailVerifyToken = req.body.emailVerifyToken;
+    const emailVerifyToken = req.query.token;
     const user = await authService.verifyEmail({ emailVerifyToken });
     res.status(201).json({
       success: true,
