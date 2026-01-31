@@ -54,7 +54,39 @@ export const updateUserById = async (req, res, next) => {
 
     res.status(200).json({
       success: true,
-      message: 'users fetch successfully',
+      message: 'users updated successfully',
+      user,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const deleteUserById = async (req, res, next) => {
+  try {
+    const { userId } = req.params;
+
+    const user = await usersService.deleteUserById(userId);
+
+    res.status(200).json({
+      success: true,
+      message: 'users deleted successfully',
+      user,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const deleteUserByEmail = async (req, res, next) => {
+  try {
+    const { email } = req.body;
+
+    const user = await usersService.deleteUserByEmail(email);
+
+    res.status(200).json({
+      success: true,
+      message: 'users deleted successfully',
       user,
     });
   } catch (error) {

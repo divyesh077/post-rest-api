@@ -1,6 +1,8 @@
 import express from 'express';
 
 import {
+  deleteUserByEmail,
+  deleteUserById,
   getUserByEmail,
   getUserById,
   getUsers,
@@ -14,5 +16,8 @@ router.get('/by-user-email', getUserByEmail);
 router.get('/:userId', getUserById);
 
 router.put('/:userId', updateUserById);
+
+router.delete('/by-user-email', deleteUserByEmail);
+router.delete('/:userId', deleteUserById);
 
 export default router;
