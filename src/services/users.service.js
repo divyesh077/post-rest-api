@@ -79,7 +79,7 @@ const getUserByEmailWithThrowError = async (email) => {
 
 const updateUserById = async (userId, updateData = {}) => {
   try {
-    const { password, ...safeUpdateData } = updateData;
+    const { password: _password, ...safeUpdateData } = updateData;
     const updatedUser = await User.findByIdAndUpdate(userId, safeUpdateData, {
       new: true,
       runValidators: true,
