@@ -22,12 +22,15 @@ export const env = {
 
     refreshSecret: getEnv('JWT_REFRESH_SECRET'),
     refreshExpiresIn: getEnv('JWT_REFRESH_EXPIRES_IN'),
+    refreshTtlMs: Number(getEnv('JWT_REFRESH_TTL_MS', 7 * 24 * 60 * 60 * 1000)),
 
     emailVerifySecret: getEnv('EMAIL_VERIFY_SECRET'),
     emailVerifyExpiresIn: getEnv('EMAIL_VERIFY_EXPIRES_IN'),
+    emailVerifyTtlMs: Number(getEnv('JWT_EMAIL_VERIFY_TTL_MS', 24 * 60 * 60 * 1000)),
 
     passwordResetSecret: getEnv('PASSWORD_RESET_SECRET'),
     passwordResetExpiresIn: getEnv('PASSWORD_RESET_EXPIRES_IN'),
+    passwordResetTtlMs: Number(getEnv('JWT_PASSWORD_RESET_TTL_MS', 15 * 60 * 1000)),
   },
   smtp: {
     host: getEnv('SMTP_HOST'),
