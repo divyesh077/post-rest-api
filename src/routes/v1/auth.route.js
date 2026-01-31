@@ -12,12 +12,14 @@ import {
   verifyEmail,
 } from '../../controllers/auth.controller.js';
 import { auth } from '../../middlewares/auth.middleware.js';
+import { validateBody } from '../../middlewares/validate.middleware.js';
+import { loginUserSchema, registerUserSchema } from '../../validators/auth.validator.js';
 
 const router = express.Router();
 
-router.post('/signup', signup);
+router.post('/signup', validateBody(registerUserSchema), signup);
 
-router.post('/signin', signin);
+router.post('/signin', validateBody(loginUserSchema), signin);
 
 router.post('/signout', auth, signout);
 
