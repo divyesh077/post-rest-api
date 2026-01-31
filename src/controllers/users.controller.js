@@ -28,3 +28,19 @@ export const getUserById = async (req, res, next) => {
     next(error);
   }
 };
+
+export const getUserByEmail = async (req, res, next) => {
+  try {
+    const { email } = req.body;
+
+    const user = await usersService.getUserByEmailWithThrowError(email);
+
+    res.status(200).json({
+      success: true,
+      message: 'users fetch successfully',
+      user,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
