@@ -93,3 +93,17 @@ export const deleteUserByEmail = async (req, res, next) => {
     next(error);
   }
 };
+
+export const deleteUsers = async (req, res, next) => {
+  try {
+    const user = await usersService.deleteUsers();
+
+    res.status(200).json({
+      success: true,
+      message: 'users deleted successfully',
+      user,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
