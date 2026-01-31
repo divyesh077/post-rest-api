@@ -44,3 +44,20 @@ export const getUserByEmail = async (req, res, next) => {
     next(error);
   }
 };
+
+export const updateUserById = async (req, res, next) => {
+  try {
+    const userData = req.body;
+    const { userId } = req.params;
+
+    const user = await usersService.updateUserById(userId, userData);
+
+    res.status(200).json({
+      success: true,
+      message: 'users fetch successfully',
+      user,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
